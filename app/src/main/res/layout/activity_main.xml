@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/yellow"
-                android:paddingBottom="24dp">
+                android:paddingBottom="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -40,7 +40,8 @@
                     android:layout_toStartOf="@id/ivHeaderIllustration"
                     android:paddingStart="16dp"
                     android:paddingTop="20dp"
-                    android:paddingEnd="8dp">
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="14dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -62,14 +63,14 @@
 
                 <ImageView
                     android:id="@+id/ivHeaderIllustration"
-                    android:layout_width="140dp"
-                    android:layout_height="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
+                    android:adjustViewBounds="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_launcher_foreground"
+                    android:src="@drawable/truck_icon"
                     tools:ignore="ContentDescription" />
             </RelativeLayout>
 
@@ -92,8 +93,10 @@
 
                     <EditText
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:layout_height="35dp"
                         android:layout_weight="1.6"
+                        android:drawableStart="@drawable/ic_search"
+                        android:drawablePadding="8dp"
                         android:background="@drawable/search_bg"
                         android:hint="Search by Order ID / Location"
                         android:paddingStart="12dp"
@@ -107,7 +110,7 @@
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:layout_height="35dp"
                         android:layout_weight="0.7"
                         android:layout_marginStart="8dp"
                         android:background="@drawable/search_bg"
@@ -118,14 +121,17 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Y Filter"
+                            android:drawableStart="@drawable/ic_filter"
+                            android:drawablePadding="6dp"
+                            android:gravity="center"
+                            android:text="Filter"
                             android:textColor="@color/black"
                             android:textSize="13sp"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
+                        android:layout_height="35dp"
                         android:layout_weight="0.7"
                         android:layout_marginStart="8dp"
                         android:background="@drawable/search_bg"
@@ -136,7 +142,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="↑↓ Sort"
+                            android:drawableStart="@drawable/ic_sort"
+                            android:drawablePadding="4dp"
+                            android:text="Sort"
+                            android:gravity="center"
                             android:textColor="@color/black"
                             android:textSize="13sp"/>
                     </LinearLayout>
@@ -218,7 +227,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#E8EAF6"
+                android:background="@drawable/info_box_bg"
                 android:orientation="horizontal"
                 android:padding="12dp"
                 android:layout_marginBottom="12dp"
@@ -229,7 +238,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="यहाँ आपके सभी पिछले ऑर्डर दिखाए गए हैं।\nआप इनवॉइस डाउनलोड कर सकते हैं या उसी पते पर दोबारा ऑर्डर कर सकते हैं।"
-                    android:textColor="#3F51B5"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:lineSpacingMultiplier="1.2" />
 
@@ -237,7 +246,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="✕"
-                    android:textColor="#3F51B5"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:padding="4dp"
                     android:clickable="true"
