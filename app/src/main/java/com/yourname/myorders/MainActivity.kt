@@ -13,6 +13,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Blend the status bar color with the yellow header background seamlessly
+        window.statusBarColor = getColor(R.color.yellow)
+        @Suppress("DEPRECATION")
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+
         setContentView(R.layout.activity_main)
 
         // 1. Find the RecyclerView from activity_main.xml
@@ -67,7 +73,7 @@ class OrdersAdapter(private val orderList: List<Order>) : RecyclerView.Adapter<O
         if (order.status == "CANCELLED") {
             holder.tvStatus.setTextColor(holder.itemView.context.getColor(R.color.red))
         } else {
-            holder.itemView.context.getColor(R.color.green)
+            holder.tvStatus.setTextColor(holder.itemView.context.getColor(R.color.green))
         }
     }
 
@@ -75,10 +81,10 @@ class OrdersAdapter(private val orderList: List<Order>) : RecyclerView.Adapter<O
 
     // --- 3. VIEWHOLDER ---
     class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvMetaData: TextView = itemView.findViewById(R.id.tvMetaData) // Add android:id="@+id/tvMetaData" to your layout's ID string textview if needed
-        val tvPrice: TextView = itemView.findViewById(R.id.tvPrice)       // Add android:id="@+id/tvPrice" to price textview
-        val tvPickup: TextView = itemView.findViewById(R.id.tvPickup)     // Add android:id="@+id/tvPickup" to pickup address textview
-        val tvDrop: TextView = itemView.findViewById(R.id.tvDrop)         // Add android:id="@+id/tvDrop" to drop address textview
-        val tvStatus: TextView = itemView.findViewById(R.id.tvStatus)     // Add android:id="@+id/tvStatus" to status textview
+        val tvMetaData: TextView = itemView.findViewById(R.id.tvMetaData)
+        val tvPrice: TextView = itemView.findViewById(R.id.tvPrice)
+        val tvPickup: TextView = itemView.findViewById(R.id.tvPickup)
+        val tvDrop: TextView = itemView.findViewById(R.id.tvDrop)
+        val tvStatus: TextView = itemView.findViewById(R.id.tvStatus)
     }
 }
