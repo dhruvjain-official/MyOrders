@@ -165,6 +165,7 @@
 
                     <!-- All Orders -->
                     <TextView
+                        android:id="@+id/tabAll"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -172,6 +173,8 @@
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center"
                         android:text="All Orders"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:textColor="@color/black"
                         android:textSize="11sp" />
 
@@ -184,11 +187,14 @@
 
                     <!-- Completed -->
                     <TextView
+                        android:id="@+id/tabCompleted"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:text="Completed"
                         android:textColor="@color/black"
                         android:textSize="11sp" />
@@ -202,12 +208,15 @@
 
                     <!-- Cancelled -->
                     <TextView
+                        android:id="@+id/tabCancelled"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center"
                         android:text="Cancelled"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:textColor="@color/black"
                         android:textSize="11sp" />
 
@@ -220,11 +229,14 @@
 
                     <!-- Booked Again -->
                     <TextView
+                        android:id="@+id/tabBookedAgain"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-medium"
                         android:gravity="center"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:text="Booked Again"
                         android:textColor="@color/black"
                         android:textSize="11sp" />
@@ -246,6 +258,7 @@
             android:padding="12dp">
 
             <LinearLayout
+                android:id="@+id/infoBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -278,6 +291,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/btnCloseInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:clickable="true"
@@ -285,6 +299,7 @@
                     android:padding="4dp"
                     android:paddingTop="2dp"
                     android:text="✕"
+                    android:foreground="?attr/selectableItemBackgroundBorderless"
                     android:textColor="@color/black"
                     android:textSize="12sp" />
             </LinearLayout>

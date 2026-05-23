@@ -69,11 +69,15 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
+                    android:id="@+id/btnMore"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:padding="6dp"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
                     android:layout_marginTop="6dp"
                     android:layout_gravity="end"
-                    android:paddingEnd="-10dp"
                     android:src="@drawable/ic_more_vert"
                     app:tint="@color/black" />
 
@@ -171,6 +175,8 @@
                     android:background="@drawable/button_outline"
                     android:drawableStart="@drawable/invoice_icon"
                     android:drawablePadding="6dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
                     android:paddingStart="16dp"
@@ -186,6 +192,8 @@
                     android:background="@drawable/button_yellow"
                     android:fontFamily="sans-serif-medium"
                     android:gravity="center"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:paddingStart="16dp"
                     android:paddingEnd="16dp"
                     android:text="Book Again"

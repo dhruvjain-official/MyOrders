@@ -19,7 +19,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // 1. Enable Edge-to-Edge infrastructure
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -27,13 +26,11 @@ class MainActivity : AppCompatActivity() {
         findViewById<BottomNavigationView>(R.id.bottomNavigation)
             .selectedItemId = R.id.nav_orders
 
-        // 2. Dynamic Status Bar Height Calculation
         val statusBarBg = findViewById<View>(R.id.statusBarBackground)
 
         ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { _, insets ->
             val statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars())
 
-            // This safely changes the height of your custom status view to match the exact hardware notch/height
             val params = statusBarBg.layoutParams
             params.height = statusBarInsets.top
             statusBarBg.layoutParams = params
@@ -41,11 +38,8 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // 3. Set background color property explicitly to your target amber-yellow hex format
         statusBarBg.setBackgroundColor(Color.parseColor("#FFC703"))
 
-        // 4. Force system status icons (clock, battery, wifi) to dark mode appearance
-        // This keeps them crisp and readable against your light #FFC703 background view
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.decorView.windowInsetsController?.setSystemBarsAppearance(
                 WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS,
@@ -56,7 +50,6 @@ class MainActivity : AppCompatActivity() {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
 
-        // 5. Setup RecyclerView Container list layout mapping
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewOrders)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -67,13 +60,60 @@ class MainActivity : AppCompatActivity() {
             Order("#ORD12348", "05 Feb, 4:46 PM", "332, Gumanwara", "GC72+GGV, Kamrari, Madhya Pradesh 475661, India", "₹ 1634.0", "COMPLETED")
         )
         recyclerView.adapter = OrdersAdapter(dummyOrders)
+
+        val tabAll = findViewById<TextView>(R.id.tabAll)
+        val tabCompleted = findViewById<TextView>(R.id.tabCompleted)
+        val tabCancelled = findViewById<TextView>(R.id.tabCancelled)
+        val tabBookedAgain = findViewById<TextView>(R.id.tabBookedAgain)
+
+        fun resetTabs() {
+            tabAll.background = null
+            tabCompleted.background = null
+            tabCancelled.background = null
+            tabBookedAgain.background = null
+        }
+
+        tabAll.setOnClickListener {
+            resetTabs()
+            tabAll.setBackgroundResource(R.drawable.tab_selected)
+        }
+
+        tabCompleted.setOnClickListener {
+            resetTabs()
+            tabCompleted.setBackgroundResource(R.drawable.tab_selected)
+        }
+
+        tabCancelled.setOnClickListener {
+            resetTabs()
+            tabCancelled.setBackgroundResource(R.drawable.tab_selected)
+        }
+
+        tabBookedAgain.setOnClickListener {
+            resetTabs()
+            tabBookedAgain.setBackgroundResource(R.drawable.tab_selected)
+        }
+
+        val infoBox = findViewById<View>(R.id.infoBox)
+        val btnCloseInfo = findViewById<TextView>(R.id.btnCloseInfo)
+
+        btnCloseInfo.setOnClickListener {
+
+            infoBox.animate()
+                .alpha(0f)
+                .setDuration(200)
+                .withEndAction {
+                    infoBox.visibility = View.GONE
+                }
+
+        }
+
+
     }
 }
 
-// --- DATA MODEL ---
+
 data class Order(val orderId: String, val dateTime: String, val pickupLoc: String, val dropLoc: String, val price: String, val status: String)
 
-// --- RECYCLERVIEW ADAPTER ---
 class OrdersAdapter(private val orderList: List<Order>) : RecyclerView.Adapter<OrdersAdapter.OrderViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OrderViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_order, parent, false)
