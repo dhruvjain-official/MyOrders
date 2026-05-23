@@ -265,7 +265,7 @@
                         android:layout_height="25dp"
                         android:layout_marginTop="2dp"
                         android:layout_marginEnd="8dp"
-                        android:src="@drawable/ic_info"/>
+                        android:src="@drawable/ic_info" />
 
                     <TextView
                         android:layout_width="0dp"
@@ -299,11 +299,18 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_gravity="bottom"
-        android:background="@color/white"
-        app:elevation="8dp"
-        app:labelVisibilityMode="labeled" />
+        android:background="@android:color/white"
+        app:elevation="12dp"
+        app:itemIconSize="24dp"
+        app:itemIconTint="@color/bottom_nav_color"
+        app:itemTextColor="@color/bottom_nav_color"
+        app:itemRippleColor="@android:color/transparent"
+        app:labelVisibilityMode="labeled"
+        app:itemActiveIndicatorStyle="@null"
+        app:menu="@menu/bottom_menu"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

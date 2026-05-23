@@ -14,6 +14,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,6 +23,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        findViewById<BottomNavigationView>(R.id.bottomNavigation)
+            .selectedItemId = R.id.nav_orders
 
         // 2. Dynamic Status Bar Height Calculation
         val statusBarBg = findViewById<View>(R.id.statusBarBackground)

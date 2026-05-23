@@ -14,11 +14,13 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <View
+        <ImageView
             android:id="@+id/ivVehicle"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@color/yellow" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="-20dp"
+            android:src="@drawable/card_truck"
+            android:scaleType="fitCenter" />
 
         <LinearLayout
             android:id="@+id/llHeader"
@@ -51,14 +53,31 @@
                     android:textSize="11sp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvPrice"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="₹ 0.0"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:gravity="end">
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 0.0"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_gravity="end"
+                    android:paddingEnd="-10dp"
+                    android:src="@drawable/ic_more_vert"
+                    app:tint="@color/black" />
+
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -67,7 +86,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/llHeader"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:gravity="top"
             android:layout_toEndOf="@id/ivVehicle"
             android:orientation="vertical">
 
