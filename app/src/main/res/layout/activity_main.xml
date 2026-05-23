@@ -1,87 +1,218 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.tools.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/light_gray">
+    android:background="@color/light_gray"
+    tools:context=".MainActivity">
 
-    <!-- TOP HEADER -->
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="@color/yellow"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="My Orders"
-            android:textColor="@color/black"
-            android:textSize="32sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="View your completed trips here. You can download invoices or quickly book the same order again."
-            android:textColor="@color/black"
-            android:textSize="15sp" />
-
-    </LinearLayout>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="-28dp"
-        android:background="@drawable/search_bg"
-        android:drawableStart="@android:drawable/ic_menu_search"
-        android:drawablePadding="10dp"
-        android:hint="Search your orders here"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textSize="15sp"
-        android:inputType="text"/>
-
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:orientation="horizontal">
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Filter"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:backgroundTint="@android:color/transparent"
-            android:background="@drawable/button_outline"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/yellow"
+            android:padding="16dp">
 
-        <Space
-            android:layout_width="12dp"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Orders"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:text="Sort by"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:backgroundTint="@android:color/transparent"
-            android:background="@drawable/button_outline"/>
+            <TextView
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="View your completed trips here. You can download invoices or quickly book the same order again."
+                android:textColor="@color/black"
+                android:alpha="0.8"
+                android:textSize="12sp" />
+        </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:weightSum="3">
 
-</LinearLayout>
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1.6"
+                android:background="@drawable/search_bg"
+                android:hint="Search by Order ID / Location"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textColorHint="@color/text_gray"
+                android:textColor="@color/black"
+                android:textSize="13sp"
+                android:singleLine="true"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="0.7"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/search_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="↑↓ Sort"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="0.7"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/search_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:focusable="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Y Filter"
+                    android:textColor="@color/black"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/tab_selected"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp"
+                    android:text="All Orders"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/tab_unselected"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp"
+                    android:text="Completed"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/tab_unselected"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp"
+                    android:text="Cancelled"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/tab_unselected"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="8dp"
+                    android:text="Booked Again"
+                    android:textColor="@color/text_gray"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E8EAF6"
+                android:orientation="horizontal"
+                android:padding="12dp"
+                android:layout_marginBottom="12dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="यहाँ आपके सभी पिछले ऑर्डर दिखाए गए हैं।\nआप इनवॉइस डाउनलोड कर सकते हैं या उसी पते पर दोबारा ऑर्डर कर सकते हैं।"
+                    android:textColor="#3F51B5"
+                    android:textSize="12sp"
+                    android:lineSpacingMultiplier="1.2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✕"
+                    android:textColor="#3F51B5"
+                    android:textSize="16sp"
+                    android:padding="4dp"
+                    android:clickable="true"
+                    android:focusable="true"/>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewOrders"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                tools:listitem="@layout/item_order" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:elevation="8dp"
+        app:labelVisibilityMode="labeled" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
