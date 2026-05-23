@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
+    app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="8dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="@color/white">
+    app:cardElevation="2dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,8 +23,8 @@
             android:id="@+id/llHeader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/ivVehicle"
             android:layout_marginStart="12dp"
+            android:layout_toEndOf="@id/ivVehicle"
             android:orientation="horizontal">
 
             <LinearLayout
@@ -38,9 +37,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Four Wheeler"
-                    android:textStyle="bold"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvMetaData"
@@ -56,9 +55,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹ 0.0"
-                android:textStyle="bold"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -66,28 +65,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/llHeader"
-            android:layout_toEndOf="@id/ivVehicle"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@id/ivVehicle"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvPickup"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pickup location address"
-                android:textColor="@color/black"
-                android:textSize="13sp"/>
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvDrop"
-                android:layout_width="match_parent"
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:src="@drawable/ic_pickup" />
+
+                <TextView
+                    android:id="@+id/tvPickup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Pickup location"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
-                android:text="Drop-off location address"
-                android:textColor="@color/black"
-                android:textSize="13sp"/>
+                android:gravity="top"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_drop" />
+
+                <TextView
+                    android:id="@+id/tvDrop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="Drop location"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
         </LinearLayout>
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -100,10 +128,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="STATUS"
+                android:background="@drawable/status_cancelled_bg"
+                android:fontFamily="sans-serif-medium"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:text="CANCELLED"
                 android:textColor="@color/red"
-                android:textStyle="bold"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -111,26 +144,32 @@
                 android:layout_alignParentEnd="true"
                 android:orientation="horizontal">
 
-                <Button
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:text="Invoice"
-                    android:textAllCaps="false"
-                    android:textSize="13sp"
+                    android:layout_height="30dp"
                     android:background="@drawable/button_outline"
-                    style="?android:attr/borderlessButtonStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="36dp"
-                    android:layout_marginStart="8dp"
-                    android:text="Book Again"
-                    android:textAllCaps="false"
-                    android:textSize="13sp"
-                    android:textStyle="bold"
+                    android:drawableStart="@drawable/invoice_icon"
+                    android:drawablePadding="6dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="Invoice"
                     android:textColor="@color/black"
-                    android:background="@drawable/tab_selected"
-                    style="?android:attr/borderlessButtonStyle"/>
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/button_yellow"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:text="Book Again"
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
