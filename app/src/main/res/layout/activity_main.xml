@@ -3,13 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.tools.com/tools"
-    android:fitsSystemWindows="false"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray"
     tools:context=".MainActivity">
 
-    <!-- FIXED: The AppBarLayout now behaves as a frozen/unmovable container -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,21 +19,27 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Yellow Header Banner Area (Fixed) -->
+            <!-- FIXED: Height set to 0dp, ID added for dynamic calculation -->
+            <View
+                android:id="@+id/statusBarBackground"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="#FFC703" />
+
+            <!-- Yellow Header Container (Stays clean yellow) -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/yellow"
                 android:paddingBottom="24dp">
 
-                <!-- Title & Subtitle Section -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_toStartOf="@id/ivHeaderIllustration"
                     android:paddingStart="16dp"
-                    android:paddingTop="50dp"
+                    android:paddingTop="20dp"
                     android:paddingEnd="8dp">
 
                     <TextView
@@ -56,21 +60,20 @@
                         android:textSize="12sp" />
                 </LinearLayout>
 
-                <!-- Delivery Truck / Clipboard Image on the Right -->
                 <ImageView
                     android:id="@+id/ivHeaderIllustration"
                     android:layout_width="140dp"
                     android:layout_height="100dp"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_launcher_foreground"
                     tools:ignore="ContentDescription" />
             </RelativeLayout>
 
-            <!-- White Control Panel (Fixed) -->
+            <!-- White Control Panel -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,7 +203,6 @@
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- SCROLLABLE AREA: Only the content inside this block will scroll up and down -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -213,7 +215,6 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <!-- Information Announcement Banner (Will scroll with the cards) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -243,7 +244,6 @@
                     android:focusable="true"/>
             </LinearLayout>
 
-            <!-- Recycler View List (Will scroll) -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewOrders"
                 android:layout_width="match_parent"
@@ -253,7 +253,6 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Navigation View (Fixed at very bottom) -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="60dp"
